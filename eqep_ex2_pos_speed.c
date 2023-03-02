@@ -14,10 +14,10 @@
 //
 // Global variables
 //
-bool m_state = false;
+bool     m_state = false;
 uint32_t targetCount = SAMPLES;
-uint8_t Val[BUFSIZE];
-int pointer = 0;
+uint8_t  Val[BUFSIZE];
+int      pointer = 0;
 
 //
 // Constants
@@ -27,9 +27,8 @@ const uint8_t IP[4] = { 10, 1, 0, 67}; //ip address
 const uint8_t GW[4] = { 10, 1, 0, 1}; //gateway address
 const uint8_t SUB[4] = { 255, 255, 255, 0}; //sub mask
 const uint8_t IPDest[4] = { 10, 1, 0, 218}; //ip address
-
-
 uint8_t res[6] = { 0,0,0,0,0,0 }; //ip address
+
 //
 // Function Prototypes
 //
@@ -44,6 +43,7 @@ void main(void)
     // Initialize device clock and peripherals
     //
     Device_init();
+
     //
     // Disable pin locks and enable internal pullups.
     //
@@ -60,14 +60,12 @@ void main(void)
     configureSpiGPIOs();
     configureSPI();
 
-  //  WIZCHIP_WRITE(PHYCFGR, 0x1);
-    //uint8_t o = WIZCHIP_READ(PHYCFGR);
-    //int s = getPHYCFGR();
-    setSn_TXBUF_SIZE(0,16);
-    int s = getSn_TxMAX(0);
     //
     //W5500 init
     //
+    setSn_TXBUF_SIZE(0,16);
+    int s = getSn_TxMAX(0);
+
     WIZCHIP_WRITE_BUF(SHAR, (uint8_t*)&Mac[0], 6);
     WIZCHIP_READ_BUF(SHAR, res, 6);
 
@@ -87,7 +85,7 @@ void main(void)
     //
     // Setup eQEP1, configuring the unit timer and quadrature capture units
     //
-    initEQEP(6);
+    initEQEP(EQEP1_BASE);
     //initEPWM();
 
     //
@@ -146,6 +144,7 @@ void main(void)
 __interrupt void EQEPCompare(void)
 {
     int32_t val = EQEP_GetCounts();
+
     Val[pointer + 0] = (val & 0xFF);
     Val[pointer + 1] = ((val>>8) & 0xFF);
     Val[pointer + 2] = ((val>>16) & 0xFF);
