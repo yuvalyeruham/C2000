@@ -59,7 +59,8 @@
 //
 // Function Prototypes
 //
-void initEQEP(uint32_t value_);
+void initEQEP1();
+void initEQEP2();
 void initEPWM(void);
 void SetUart();
 void initGPIOpins();

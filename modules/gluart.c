@@ -12,7 +12,7 @@ void SetUart()
 
         // GPIO43 is the SCI Rx pin.
         //
-        GPIO_setControllerCore(DEVICE_GPIO_PIN_SCIRXDA, GPIO_CORE_CPU1);
+        //GPIO_setControllerCore(DEVICE_GPIO_PIN_SCIRXDA, GPIO_CORE_CPU1);
         GPIO_setPinConfig(DEVICE_GPIO_CFG_SCIRXDA);
         GPIO_setDirectionMode(DEVICE_GPIO_PIN_SCIRXDA, GPIO_DIR_MODE_IN);
         GPIO_setPadConfig(DEVICE_GPIO_PIN_SCIRXDA, GPIO_PIN_TYPE_STD);
@@ -21,7 +21,7 @@ void SetUart()
         //
         // GPIO42 is the SCI Tx pin.
         //
-        GPIO_setControllerCore(DEVICE_GPIO_PIN_SCITXDA, GPIO_CORE_CPU1);
+        //GPIO_setControllerCore(DEVICE_GPIO_PIN_SCITXDA, GPIO_CORE_CPU1);
         GPIO_setPinConfig(DEVICE_GPIO_CFG_SCITXDA);
         GPIO_setDirectionMode(DEVICE_GPIO_PIN_SCITXDA, GPIO_DIR_MODE_OUT);
         GPIO_setPadConfig(DEVICE_GPIO_PIN_SCITXDA, GPIO_PIN_TYPE_STD);

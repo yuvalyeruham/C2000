@@ -56,7 +56,7 @@ void configureSPI()
        //
        // SPI configuration.
        //
-       SPI_setConfig(SPIA_BASE, DEVICE_LSPCLK_FREQ, SPI_PROT_POL0PHA0, SPI_MODE_CONTROLLER, 8000000, 16);
+       SPI_setConfig(SPIA_BASE, DEVICE_LSPCLK_FREQ, SPI_PROT_POL0PHA0, SPI_MODE_MASTER, 8000000, 16);
        SPI_disableLoopback(SPIA_BASE);
        SPI_setEmulationMode(SPIA_BASE, SPI_EMULATION_FREE_RUN);
        SPI_enableHighSpeedMode(SPIA_BASE);

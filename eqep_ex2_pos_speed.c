@@ -26,7 +26,7 @@ const uint8_t Mac[6] = { 0xBE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; //physical mac ad
 const uint8_t IP[4] = { 10, 1, 0, 67}; //ip address
 const uint8_t GW[4] = { 10, 1, 0, 1}; //gateway address
 const uint8_t SUB[4] = { 255, 255, 255, 0}; //sub mask
-const uint8_t IPDest[4] = { 10, 1, 0, 218}; //ip address
+const uint8_t IPDest[4] = { 10, 1, 0, 181}; //ip address
 uint8_t res[6] = { 0,0,0,0,0,0 }; //ip address
 
 //
@@ -85,7 +85,8 @@ void main(void)
     //
     // Setup eQEP1, configuring the unit timer and quadrature capture units
     //
-    initEQEP(EQEP1_BASE);
+    initEQEP1();
+    initEQEP2();
     //initEPWM();
 
     //
